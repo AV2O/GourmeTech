@@ -6,29 +6,158 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GourmeTech</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="JS/scripts.js"></script>
+    <script src="JS/scripts.js" defer></script>
 </head>
 
 <body>
     <header>
-        <div id="logo">
-            <div><a href="index.html">G</a></div>
+        <!-- logo -->
+        <div class="logo">
+            <div class="logo-G"><a href="index.html">G</a></div>
             <h1><a href="index.html">GourmeTech</a></h1>
         </div>
-        <nav id="navbar">
+        <!-- nav -->
+        <nav class="nav">
             <ul>
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="recette.html">Ajouter une recette</a></li>
                 <li><a href="favoris.html">Mes favoris</a></li>
                 <li><a href="a-propos.html">À propos</a></li>
             </ul>
+            <!-- thème sombre/clair -->
+            <button id="theme-toggle" class="theme-toggle" aria-label="Changer thème">
+                <span class="toggle-sun">☀️</span>
+                <span class="toggle-moon">🌙</span>
+                <span class="toggle-circle"></span>
+            </button>
+            <!-- menu burger -->
             <button class="burger-menu" id="burgerMenu" aria-label="Menu">
-                <span class="burger-line"></span>
-                <span class="burger-line"></span>
-                <span class="burger-line"></span>
+                <span class="line-burger"></span>
+                <span class="line-burger"></span>
+                <span class="line-burger"></span>
             </button>
         </nav>
     </header>
+    <main>
+        <!-- recherche -->
+        <div class="search">
+            <form>
+                <input type="search" placeholder="Rechercher une recette ...">
+                <button type="submit">Rechercher</button>
+            </form>
+            <div class="cards">
+                <article class="card">
+                    <h2>Catégorie</h2>
+                    <div class="box">
+                        <div>
+                            <input type="checkbox" name="entree" id="entree">
+                            <label for="entree">Entrée</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="plat" id="plat">
+                            <label for="plat">Plat</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="dessert" id="dessert">
+                            <label for="dessert">Dessert</label>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <h2>Temps de préparation</h2>
+                    <div class="box">
+                        <div>
+                            <input type="checkbox" name="rapide" id="rapide">
+                            <label for="rapide">Rapide (&lt;30 min)</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="moyen-time" id="moyen-time">
+                            <label for="moyen-time">Moyen (30-60 min)</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="long" id="long">
+                            <label for="long">Long (&gt;60 min)</label>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <h2>Difficulté</h2>
+                    <div class="box">
+                        <div>
+                            <input type="checkbox" name="facile" id="facile">
+                            <label for="facile">Facile</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="moyen" id="moyen">
+                            <label for="moyen">Moyen</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="difficile" id="difficile">
+                            <label for="difficile">Difficile</label>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <!-- recette -->
+        <div class="container-recipe">
+            <article class="recipe">
+                <img src="assets/images/tarte_aux_pommes.jpg" alt="tarte aux pommes">
+                <button class="favori-btn" aria-label="Ajouter aux favoris">❤️</button>
+                <h2>Tarte aux pommes</h2>
+                <div>
+                    <p>Dessert</p>
+                    <p>60 min</p>
+                    <p>Facile</p>
+                </div>
+                <a href="recette.html">Voir la recette</a>
+            </article>
+            <article class="recipe">
+                <img src="assets/images/ratatouille.jpg" alt="Ratatouille provençale">
+                <button class="favori-btn" aria-label="Ajouter aux favoris">❤️</button>
+                <h2>Ratatouille provençale</h2>
+                <div>
+                    <p>Plat</p>
+                    <p>45 min</p>
+                    <p>Moyen</p>
+                </div>
+                <a href="recette.html">Voir la recette</a>
+            </article>
+            <article class="recipe">
+                <img src="assets/images/Veloute.jpg" alt="Velouté de potiron">
+                <button class="favori-btn" aria-label="Ajouter aux favoris">❤️</button>
+                <h2>Velouté de potiron</h2>
+                <div>
+                    <p>Entrée</p>
+                    <p>30 min</p>
+                    <p>Facile</p>
+                </div>
+                <a href="recette.html">Voir la recette</a>
+            </article>
+        </div>
+    </main>
+    <!-- footer -->
+    <footer>
+        <hr>
+        <div class="foot">
+            <article>
+                <h2>Navigation</h2>
+                <nav>
+                    <a href="index.html">Accueil</a>
+                    <a href="recette.html">Ajouter un recette</a>
+                    <a href="favoris.html">Mes Favoris</a>
+                    <a href="a-propos.html">À propos</a>
+                </nav>
+            </article>
+            <article>
+                <h2>À propos de GourmeTech</h2>
+                <p>GourmeTech est une plateforme de recettes culinaires interactive développée dans le cadre d'un projet
+                    pédagogique.</p>
+            </article>
+        </div>
+        <hr>
+        <p>&copy; GourmeTech - Tous droits réservés</p>
+    </footer>
 </body>
 
 </html>

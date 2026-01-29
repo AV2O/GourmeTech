@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GourmeTech</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="JS/scripts.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-G"><a href="index.html">G</a></div>
+            <h1><a href="index.html">GourmeTech</a></h1>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="recette.html">Ajouter une recette</a></li>
+                <li><a href="favoris.html">Mes favoris</a></li>
+                <li><a href="a-propos.html">À propos</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Changer thème">
+                <span class="toggle-sun">☀️</span>
+                <span class="toggle-moon">🌙</span>
+                <span class="toggle-circle"></span>
+            </button>
+            <button class="burger-menu" id="burgerMenu" aria-label="Menu">
+                <span class="line-burger"></span>
+                <span class="line-burger"></span>
+                <span class="line-burger"></span>
+            </button>
+        </nav>
+    </header>
+    <!-- RECETTE -->
+    <main class="page-recipe">
+        <div class="container-recipe">
+            <article class="recipe">
+                <img src="assets/images/tarte_aux_pommes.jpg" alt="tarte aux pommes">
+                <button class="favori-btn" aria-label="Ajouter aux favoris">❤️</button>
+                <h2>Tarte aux pommes</h2>
+                <div>
+                    <p>Dessert</p>
+                    <p>60 min</p>
+                    <p>Facile</p>
+                    <p>4 pers.</p>
+                </div>
+                <button>Ajouter aux favoris</button>
+            </article>
+            <section class="ingredients">
+                <h2>Ingrédients :</h2>
+                <ul>
+                    <li>6 pommes (préférence Golden ou Granny Smith)</li>
+                    <li>50g de sucre de canne</li>
+                    <li>1 càc de cannelle en poudre</li>
+                    <li>1 pâte brisée</li>
+                </ul>
+            </section>
+            <section class="preparation">
+                <h2>Préparation :</h2>
+                <ol>
+                    <li>Préchauffer le four à 180°C thermostat 6.</li>
+                    <li>Étaler la pâte brisée dans un moule à tarte piqué à la fourchette.</li>
+                    <li>Éplucher et couper les pommes en tranches fines sur la pâte.</li>
+                    <li>Saupoudrer avec le sucre et la cannelle.</li>
+                    <li>Enfourner 35 minutes jusqu'à ce que la pâte soit dorée.</li>
+                    <li>Laisser refroidir avant de servir.</li>
+                </ol>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <hr>
+        <div class="foot">
+            <article>
+                <h2>Navigation</h2>
+                <nav>
+                    <a href="index.html">Accueil</a>
+                    <a href="recette.html">Ajouter un recette</a>
+                    <a href="favoris.html">Mes Favoris</a>
+                    <a href="a-propos.html">À propos</a>
+                </nav>
+            </article>
+            <article>
+                <h2>À propos de GourmeTech</h2>
+                <p>GourmeTech est une plateforme de recettes culinaires interactive développée dans le cadre d'un projet
+                    pédagogique.</p>
+            </article>
+        </div>
+        <hr>
+        <p>&copy; GourmeTech - Tous droits réservés</p>
+    </footer>
+</body>
+
+</html>
