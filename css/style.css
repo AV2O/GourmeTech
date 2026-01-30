@@ -96,7 +96,8 @@ body.dark .card {
     background-color: var(--bg-primary);
 }
 
-body.dark .page-recipe, .presentation {
+body.dark .page-recipe,
+.presentation {
     background-color: var(--bg-secondary);
 }
 
@@ -472,7 +473,7 @@ form button {
     gap: 1rem;
     background-color: var(--lightGrey);
     padding: 1.5rem;
-    
+
     width: 365px;
 }
 
@@ -652,7 +653,6 @@ label {
     transform: scale(0.95);
 }
 
-/* État "aucun résultat" */
 .container-recipe:empty::after {
     content: "Aucune recette trouvée 😔";
     display: block;
@@ -770,6 +770,109 @@ ol li {
     font-weight: var(--bold);
     border-radius: 0 0 5px 5px;
     width: 100%;
+}
+
+.page-recipe .notation .etoiles {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    /* INVERSÉ visuel */
+    justify-content: center;
+    font-size: clamp(2.2rem, 7vw, 3rem) !important;
+    gap: 0.25em;
+    cursor: pointer;
+}
+
+.page-recipe .notation label {
+    color: #e5e7eb !important;
+    transition: all 0.3s ease;
+    padding: 0.4em;
+}
+
+.page-recipe .notation label:hover,
+.page-recipe .notation label:hover~label {
+    color: #fbbf24 !important;
+    text-shadow: 0 0 15px #fbbf24;
+}
+
+.page-recipe .notation input:checked+label,
+.page-recipe .notation input:checked+label~label {
+    color: #f59e0b !important;
+    text-shadow: 0 0 12px #f59e0b;
+}
+
+.page-recipe .notation input {
+    display: none !important;
+}
+
+.page-recipe .notation h3 {
+    text-align: center;
+    margin: 1rem 0 0.5rem;
+    color: var(--text-primary);
+    font-size: 1.3rem;
+}
+
+
+.galery-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.page-recipe .galery-img h2 {
+        font-size: 4rem;
+        color: var(--text-primary); 
+    }
+
+.galery {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, auto);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+    justify-content: center;
+}
+
+
+.photo-cv {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.photo-cv img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.photo-cv:hover img {
+    transform: scale(1.05);
+
+}
+
+.photo-cv figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent 0%, rgba(230, 127, 34, 0.92) 30%);
+    color: var(--white);
+    padding: 2rem 1.5rem 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    font-weight: 600;
+    font-size: 1.6rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.photo-cv:hover figcaption {
+    transform: translateY(0);
 }
 
 /*  ======== PAGE FAVORIS ======== */
@@ -976,6 +1079,19 @@ input[type="checkbox"]+label {
     transform: translateY(-5px);
 }
 
+.error {
+    display: block;
+    color: #d32f2f;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    min-height: 1rem;
+}
+
+.input-invalid {
+    border-color: #d32f2f !important;
+    box-shadow: 0 0 0 0.2rem rgba(211, 47, 47, 0.25);
+}
+
 /* ------------ FAQ ------------ */
 
 
@@ -1176,6 +1292,17 @@ input[type="checkbox"]+label {
         display: block;
     }
 
+    .page-recipe .galery-img h2 {
+        font-size: 3rem;
+        color: var(--text-primary); 
+    }
+
+    .galery {
+        display: grid;
+        grid-template-columns: 350px 350px;
+        grid-template-rows: repeat(6, auto);
+
+    }
 }
 
 @media (min-width: 1024px) {
@@ -1295,5 +1422,16 @@ input[type="checkbox"]+label {
     body.dark header nav a:hover,
     body.dark .navbar-nav a:hover {
         opacity: 0.9;
+    }
+
+    .page-recipe .galery-img h2 {
+        font-size: 4rem;
+        color: var(--text-primary); 
+    }
+
+    .galery {
+        display: grid;
+        grid-template-columns: 350px 350px 350px;
+        grid-template-rows: repeat(6, auto);
     }
 }

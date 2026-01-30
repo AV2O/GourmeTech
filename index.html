@@ -17,7 +17,7 @@
             <h1><a href="index.html">GourmeTech</a></h1>
         </div>
         <!-- nav -->
-        <nav class="nav">
+        <nav class="nav" aria-label="Navigation principale">
             <ul>
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="recette.html">Ajouter une recette</a></li>
@@ -42,6 +42,7 @@
         <!-- recherche -->
         <div class="search">
             <form role="search">
+                <label for="recherche-recette"></label>
                 <input type="search" id="recherche-recette" placeholder="Rechercher une recette ...">
                 <button type="submit">Rechercher</button>
             </form>
@@ -110,7 +111,7 @@
                     <p>60 min</p>
                     <p>Facile</p>
                 </div>
-                <a href="recette.html">Voir la recette</a>
+                <a href="recette.html" title="Voir la recette complète de Tarte aux pommes">Voir la recette</a>
             </article>
             <article class="recipe" data-id="2" data-categorie="plat" data-temps="moyen" data-difficulte="moyen">
                 <img src="assets/images/ratatouille.jpg" alt="Ratatouille provençale">
@@ -121,7 +122,7 @@
                     <p>45 min</p>
                     <p>Moyen</p>
                 </div>
-                <a href="recette.html">Voir la recette</a>
+                <a href="recette.html" title="Voir la recette complète de le Ratatouille provençale">Voir la recette</a>
             </article>
             <article class="recipe" data-id="3" data-categorie="entree" data-temps="rapide" data-difficulte="facile">
                 <img src="assets/images/Veloute.jpg" alt="Velouté de potiron">
@@ -132,7 +133,7 @@
                     <p>30 min</p>
                     <p>Facile</p>
                 </div>
-                <a href="recette.html">Voir la recette</a>
+                <a href="recette.html" title="Voir la recette complète du Velouté de potiron">Voir la recette</a>
             </article>
         </div>
     </main>
@@ -144,7 +145,7 @@
                 <h2>Navigation</h2>
                 <nav>
                     <a href="index.html">Accueil</a>
-                    <a href="recette.html">Ajouter un recette</a>
+                    <a href="recette.html">Ajouter une recette</a>
                     <a href="favoris.html">Mes Favoris</a>
                     <a href="a-propos.html">À propos</a>
                 </nav>

@@ -114,55 +114,106 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ———— FILTRES RECETTES ————
-const inputRecherche = document.getElementById("recherche-recette");
-const recettes = document.querySelectorAll(".recipe");
+  const inputRecherche = document.getElementById("recherche-recette");
+  const recettes = document.querySelectorAll(".recipe");
 
-if (inputRecherche && recettes.length > 0) {  // ← PROTÉGÉ
-  
-  function filtrerRecettes() {
-    if (!inputRecherche) return;
-    
-    const mot = inputRecherche.value.toLowerCase();
-    
-    const categories = Array.from(
-      document.querySelectorAll("input[data-categorie]:checked")
-    ).map((cb) => cb.dataset.categorie);
+  if (inputRecherche && recettes.length > 0) {
+    // ← PROTÉGÉ
 
-    const tempsFiltres = Array.from(
-      document.querySelectorAll("input[data-time]:checked")
-    ).map((cb) => cb.dataset.time);
+    function filtrerRecettes() {
+      if (!inputRecherche) return;
 
-    const difficultes = Array.from(
-      document.querySelectorAll("input[data-difficulte]:checked")
-    ).map((cb) => cb.dataset.difficulte);
+      const mot = inputRecherche.value.toLowerCase();
 
-    recettes.forEach(function (recette) {
-      const texte = recette.textContent.toLowerCase();
-      
-      const categorieOk = categories.length === 0 || categories.includes(recette.dataset.categorie);
-      const tempsOk = tempsFiltres.length === 0 || tempsFiltres.includes(recette.dataset.temps);
-      const difficulteOk = difficultes.length === 0 || difficultes.includes(recette.dataset.difficulte);
+      const categories = Array.from(
+        document.querySelectorAll("input[data-categorie]:checked"),
+      ).map((cb) => cb.dataset.categorie);
 
-      if ((mot === "" || texte.includes(mot)) && categorieOk && tempsOk && difficulteOk) {
-        recette.classList.remove("hidden");
-      } else {
-        recette.classList.add("hidden");
-      }
-    });
+      const tempsFiltres = Array.from(
+        document.querySelectorAll("input[data-time]:checked"),
+      ).map((cb) => cb.dataset.time);
+
+      const difficultes = Array.from(
+        document.querySelectorAll("input[data-difficulte]:checked"),
+      ).map((cb) => cb.dataset.difficulte);
+
+      recettes.forEach(function (recette) {
+        const texte = recette.textContent.toLowerCase();
+
+        const categorieOk =
+          categories.length === 0 ||
+          categories.includes(recette.dataset.categorie);
+        const tempsOk =
+          tempsFiltres.length === 0 ||
+          tempsFiltres.includes(recette.dataset.temps);
+        const difficulteOk =
+          difficultes.length === 0 ||
+          difficultes.includes(recette.dataset.difficulte);
+
+        if (
+          (mot === "" || texte.includes(mot)) &&
+          categorieOk &&
+          tempsOk &&
+          difficulteOk
+        ) {
+          recette.classList.remove("hidden");
+        } else {
+          recette.classList.add("hidden");
+        }
+      });
+    }
+
+    // Écouteurs SÉCURISÉS
+    filtrerRecettes();
+    inputRecherche.addEventListener("input", filtrerRecettes);
+
+    document
+      .querySelectorAll("input[type='checkbox']")
+      .forEach((cb) => cb.addEventListener("change", filtrerRecettes));
   }
-
-  // Écouteurs SÉCURISÉS
-  filtrerRecettes();
-  inputRecherche.addEventListener("input", filtrerRecettes);
-  
-  document.querySelectorAll("input[type='checkbox']").forEach((cb) => 
-    cb.addEventListener("change", filtrerRecettes)
-  );
-}
 });
 
-const form = document.getElementById('contact-form');
-const nom = document.getElementById('nom');
-const email = document.getElementById('email');
-const message = document.getElementById('message');
-const consent = document.getElementById('consentement');
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+
+  const nom = document.getElementById('nom');
+  const email = document.getElementById('email');
+  const consent = document.getElementById('consentement');
+  const spans = form.querySelectorAll('.error');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Reset erreurs
+    spans.forEach(span => span.textContent = '');
+    
+    let ok = true;
+    
+    // Nom
+    if (!nom.value.trim()) {
+      nom.parentNode.querySelector('.error').textContent = 'Nom obligatoire';
+      ok = false;
+    }
+    
+    // Email
+    if (!email.value.trim()) {
+      email.parentNode.querySelector('.error').textContent = 'Email obligatoire';
+      ok = false;
+    } else if (!email.value.includes('@')) {
+      email.parentNode.querySelector('.error').textContent = 'Email invalide';
+      ok = false;
+    }
+    
+    // Consent
+    if (!consent.checked) {
+      consent.parentNode.querySelector('.error').textContent = 'RGPD obligatoire';
+      ok = false;
+    }
+    
+    if (ok) {
+      alert('Votre message a bien été envoyé !');
+      form.reset();
+    }
+  });
+});
