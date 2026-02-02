@@ -523,7 +523,7 @@ label {
     overflow: hidden;
     position: relative;
     box-shadow: var(--shadow);
-    transition: transform 0.3 ease;
+    transition: transform 0.3s ease;
 }
 
 .recipe:hover {
@@ -633,7 +633,7 @@ label {
     cursor: pointer;
     color: #ff6b6b;
     padding: 0.5rem;
-    transition: transform 0.9 ease;
+    transition: transform 0.9s ease;
 }
 
 .favori-btn:hover {
